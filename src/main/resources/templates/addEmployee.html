@@ -12,10 +12,9 @@
         <div class="col"></div>
         <div class="col-xs-12 col-md-6">
 
-
             <div class="alert alert-warning" th:if="${error}">Error!</div>
 
-            <form th:action="@{/add}" th:object="${person}" method="post">
+            <form th:action="@{/addEmployee}" th:object="${person}" method="post">
                 <div class="form-group">
                     <!-- <label for="firstName">First Name</label> -->
                     <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
@@ -28,9 +27,8 @@
                            name="lastName" th:value="${person.lastName}"/>
                     <small th:errors="*{lastName}"></small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Save</button>
             </form>
-
 
         </div>
         <div class="col"></div>
@@ -38,6 +36,8 @@
 
 
 </div>
+
+<footer th:replace="fragment::footer"></footer>
 
 </body>
 </html>

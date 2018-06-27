@@ -1,7 +1,22 @@
+
+
 a {
     color: inherit;
 }
 
-h3{
-    color: red;
+footer {
+    margin-top: 40px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    height: 30px;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 40px;
 }

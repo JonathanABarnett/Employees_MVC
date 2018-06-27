@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragment::head"></head>
+
 <body>
 
 <nav th:replace="fragment::nav"></nav>
 
 
-<div class="container">
+<div class="container" style="padding-top: 20px;">
     <div class="row" style="padding-top: 30px;">
-        <div class="col">
-        </div>
-
+        <div class="col"></div>
         <div class="col-xs-12 col-md-6">
+
+            <div class="alert alert-success" th:if="${added}">Added Successfully!</div>
+
             <div class="input-group-prepend">
                 <div class="input-group-text">
-                    <i class="material-icons">
-                        search
-                    </i>
+                    <i class="material-icons">search</i>
                 </div>
                 <input type="text" class="form-control" id="filterInput" placeholder="Search By Name..."/>
             </div>
-
-            <form th:action="@{/remove}" method="post">
-                <table class="table table-dark table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Delete</th>
-                        <th scope="col">Employee Name</th>
-                        <!-- <th scope="col">Last Name</th> -->
-                    </tr>
-                    </thead>
-                    <tbody id="names">
-                    <tr th:each="name : ${names}" class="collection-item">
-
-                        <td>
-                            <input type="checkbox" name="ids" th:value="${name.id}" th:id="${name.id}"/>
-                        </td>
-                        <td class="name" th:text="${name.firstName} + ' ' + ${name.lastName}"></td>
-                        <!-- <td class="name" th:text="${name.lastName}"></td> -->
-
-                    </tr>
-                    </tbody>
-                </table>
-                <button type="submit" class="btn btn-warning">Delete</button>
-            </form>
+            <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Employee Name</th>
+                    <!-- <th scope="col">Last Name</th> -->
+                </tr>
+                </thead>
+                <tbody id="names">
+                <tr th:each="name : ${names}" class="collection-item">
+                    <td th:text="${name.id}"></td>
+                    <td class="name" th:text="${name.firstName} + ' ' + ${name.lastName}"></td>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
         <div class="col"></div>
     </div>
+
 
 </div>
 

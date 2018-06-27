@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragment::head"></head>
+
+<body>
+
+<nav th:replace="fragment::nav"></nav>
+
+
+<div class="container" style="padding-top: 20px;">
+    <div class="row" style="padding-top: 30px;">
+        <div class="col"></div>
+        <div class="col-xs-12 col-md-6">
+
+            <div class="alert alert-warning" th:if="${error}">Error!</div>
+
+            <form th:action="@{/addDepartment}" th:object="${department}" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" aria-describedby="name"
+                           placeholder="Enter Department" name="name" th:value="${department.name}"/>
+                    <small th:errors="*{name}"></small>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="locationId" aria-describedby="locationId"
+                           placeholder="Enter Location ID" name="locationId" th:value="${department.locationId}"/>
+                    <small th:errors="*{locationId}"></small>
+                </div>
+                <div class="form-group">
+                    <textarea rows="3" class="form-control" aria-describedby="locationDescription"
+                              placeholder="Enter short description of department..." name="description"
+                              th:value="${department.description}"
+                              th:text="${department.description}"></textarea>
+                    <small th:errors="*{description}"></small>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+        </div>
+        <div class="col"></div>
+    </div>
+
+
+</div>
+
+<footer th:replace="fragment::footer"></footer>
+
+</body>
+</html>

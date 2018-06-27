@@ -2,18 +2,13 @@ package com.alaythiaproductions.employees.controllers;
 
 import com.alaythiaproductions.employees.models.Person;
 import com.alaythiaproductions.employees.service.PersonService;
-import com.alaythiaproductions.employees.service.PersonServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class indexController {
@@ -27,31 +22,31 @@ public class indexController {
         return "index";
     }
 
-    @GetMapping(value = "/list")
+    @GetMapping(value = "/listEmployee")
     public String processRemoveName(Model model) {
         model.addAttribute("title", "List");
         model.addAttribute("names", personService.findAll());
-        return "list";
+        return "listEmployee";
     }
 
-    @GetMapping(value = "/add")
+    @GetMapping(value = "/addEmployee")
     public String displayAddName(Model model) {
         model.addAttribute("title", "Add Person");
         model.addAttribute(new Person());
-        return "add";
+        return "addEmployee";
     }
 
-    @PostMapping(value = "/add")
+    @PostMapping(value = "/addEmployee")
     public String processAddName(Model model, @ModelAttribute @Valid Person person, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Name");
             model.addAttribute("error", true);
-            return "add";
+            return "addEmployee";
         }
         model.addAttribute("added", true);
         personService.save(person);
         model.addAttribute("names", personService.findAll());
-        return "list";
+        return "listEmployee";
     }
 
     @GetMapping(value = "/remove")
@@ -70,7 +65,7 @@ public class indexController {
                 personService.remove(id);
             }
             model.addAttribute("names", personService.findAll());
-            return "list";
+            return "listEmployee";
         } else {
             model.addAttribute("names", personService.findAll());
             return "remove";
