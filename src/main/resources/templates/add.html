@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragment::head"></head>
+
+<body>
+
+<nav th:replace="fragment::nav"></nav>
+
+
+<div class="container" style="padding-top: 20px;">
+    <div class="row" style="padding-top: 30px;">
+        <div class="col"></div>
+        <div class="col-xs-12 col-md-6">
+
+
+            <div class="alert alert-warning" th:if="${error}">Error!</div>
+
+            <form th:action="@{/add}" th:object="${person}" method="post">
+                <div class="form-group">
+                    <!-- <label for="firstName">First Name</label> -->
+                    <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
+                           placeholder="Enter First Name" name="firstName" th:value="${person.firstName}"/>
+                    <small th:errors="*{firstName}"></small>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="lastName">Last Name</label> -->
+                    <input type="text" class="form-control" id="lastName" placeholder="Last Name"
+                           name="lastName" th:value="${person.lastName}"/>
+                    <small th:errors="*{lastName}"></small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+        </div>
+        <div class="col"></div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
