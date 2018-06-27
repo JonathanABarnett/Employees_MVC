@@ -18,14 +18,20 @@
                 <div class="form-group">
                     <!-- <label for="firstName">First Name</label> -->
                     <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
-                           placeholder="Enter First Name" name="firstName" th:value="${person.firstName}"/>
+                           placeholder="Enter First Name" name="firstName" th:value="${person.firstName}" required="required"/>
                     <small th:errors="*{firstName}"></small>
                 </div>
                 <div class="form-group">
                     <!-- <label for="lastName">Last Name</label> -->
                     <input type="text" class="form-control" id="lastName" placeholder="Last Name"
-                           name="lastName" th:value="${person.lastName}"/>
+                           name="lastName" th:value="${person.lastName}" required="required"/>
                     <small th:errors="*{lastName}"></small>
+                </div>
+                <div class="form-group">
+                    <!-- <label for="lastName">Last Name</label> -->
+                    <input type="email" class="form-control" id="email" placeholder="Email@domain.com"
+                           name="email" th:value="${person.email}" required="required" />
+                    <small th:errors="*{email}"></small>
                 </div>
                 <div class="form-group">
                     <label for="department">Select Department</label>

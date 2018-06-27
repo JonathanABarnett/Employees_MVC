@@ -17,6 +17,9 @@ public class Person {
     @NotNull(message = "Please enter your last name.")
     @Size(min = 3, message = "Please enter your full last name.")
     private String lastName;
+    @NotNull(message = "Please enter your email address.")
+    @Size(min = 3, message = "Please enter your correct email address.")
+    private String email;
 
     @OneToOne
     @JoinColumn(name = "department_id")
@@ -25,10 +28,10 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName) {
+    public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-
+        this.email = email;
     }
 
     public int getId() {
@@ -53,6 +56,14 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Department getDepartment() {
