@@ -9,5 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
 
-
+    Department findById(int id);
 }

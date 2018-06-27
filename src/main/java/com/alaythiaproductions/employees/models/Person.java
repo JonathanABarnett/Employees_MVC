@@ -1,9 +1,6 @@
 package com.alaythiaproductions.employees.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -21,12 +18,17 @@ public class Person {
     @Size(min = 3, message = "Please enter your full last name.")
     private String lastName;
 
+    @OneToOne
+    @JoinColumn(name = "department_id")
+    private Department department;
+
     public Person() {
     }
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+
     }
 
     public int getId() {
@@ -51,5 +53,13 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

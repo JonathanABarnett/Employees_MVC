@@ -36,21 +36,26 @@
             <li class="nav-item">
                 <a class="nav-link" href="/index">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/addEmployee">Add Emp.</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Employee Menu
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="/addEmployee">Add Employee</a>
+                    <a class="dropdown-item" href="/remove">Remove Employee</a>
+                    <a class="dropdown-item" href="/listEmployee">Employee List</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/remove">Remove Emp.</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="deptDropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Department Actions
+                </a>
+                <div class="dropdown-menu" aria-labelledby="deptDropDownMenu">
+                    <a class="dropdown-item" href="/addDepartment">Add Department</a>
+                    <a class="dropdown-item" href="/listDepartment">Department List</a>
+                </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/listEmployee">List Emp.</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/addDepartment">Add Dept.</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/listDepartment">List Dept.</a>
-            </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
             <input class="form-control mr-sm-2" type="hidden"/>

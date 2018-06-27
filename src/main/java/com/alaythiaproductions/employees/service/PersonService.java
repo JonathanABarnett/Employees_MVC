@@ -12,4 +12,6 @@ public interface PersonService {
 
     void remove(int id);
 
+    Person findById(int id);
+
 }

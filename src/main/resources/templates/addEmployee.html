@@ -27,6 +27,16 @@
                            name="lastName" th:value="${person.lastName}"/>
                     <small th:errors="*{lastName}"></small>
                 </div>
+                <div class="form-group">
+                    <label for="department">Select Department</label>
+                    <select class="form-control" id="department"
+                            name="department">
+                        <option th:each="department : ${departments}"
+                                th:text="${department.name}"
+                                th:value="${department.id}"
+                                th:selected="(${department.name} == ${department.name})"></option>
+                    </select>
+                </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
 

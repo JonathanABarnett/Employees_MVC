@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragment::head"></head>
+
+<body>
+
+<nav th:replace="fragment::nav"></nav>
+
+<div class="container" style="padding-top: 20px;">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-xs-12 col-md-6">
+            <div class="card">
+                <div class="card-header text-center">Employee Description</div>
+                <div class="card-body">
+                    <h5><span style="font-weight: bolder">Name: </span><span th:text="${person.firstName} + ' ' + ${person.lastName}"></span> </h5>
+                    <p class="card-text"><span style="font-weight: bolder">Department: </span><span th:text="${person.department.name}"></span></p>
+                    <p class="card-text"><span style="font-weight: bolder">Department Description: </span><span th:text="${person.department.description}"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+<footer th:replace="fragment::footer"></footer>
+
+</body>
+</html>

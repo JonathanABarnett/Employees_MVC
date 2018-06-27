@@ -1,6 +1,7 @@
 package com.alaythiaproductions.employees.controllers;
 
 import com.alaythiaproductions.employees.models.Person;
+import com.alaythiaproductions.employees.service.DepartmentService;
 import com.alaythiaproductions.employees.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,9 @@ public class indexController {
 
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private DepartmentService departmentService;
 
     @GetMapping(value = {"/", "/index"})
     public String indexPage(Model model) {
@@ -33,6 +37,7 @@ public class indexController {
     public String displayAddName(Model model) {
         model.addAttribute("title", "Add Person");
         model.addAttribute(new Person());
+        model.addAttribute("departments", departmentService.findAll());
         return "addEmployee";
     }
 
@@ -41,6 +46,7 @@ public class indexController {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Name");
             model.addAttribute("error", true);
+            model.addAttribute("departments", departmentService.findAll());
             return "addEmployee";
         }
         model.addAttribute("added", true);

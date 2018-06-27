@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface PersonRepository extends JpaRepository<Person, Integer> {
 
-
+    Person findById(int id);
 
 }

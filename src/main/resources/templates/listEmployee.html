@@ -25,13 +25,14 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Employee Name</th>
-                    <!-- <th scope="col">Last Name</th> -->
+                    <th scope="col">More Info</th>
                 </tr>
                 </thead>
                 <tbody id="names">
                 <tr th:each="name : ${names}" class="collection-item">
                     <td th:text="${name.id}"></td>
                     <td class="name" th:text="${name.firstName} + ' ' + ${name.lastName}"></td>
+                    <td><a th:href="@{/detailEmployee?id=} + ${name.id}" class="btn btn-secondary">Details</a> </td>
                 </tr>
                 </tbody>
             </table>

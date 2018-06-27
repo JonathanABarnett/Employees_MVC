@@ -10,4 +10,6 @@ public interface DepartmentService {
     Department save(Department department);
 
     List<Department> findAll();
+
+    Department findById(int id);
 }
