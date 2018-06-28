@@ -18,6 +18,10 @@
                     <p class="card-text"><span style="font-weight: bolder">Department: </span><span th:text="${person.department.name}"></span></p>
                     <p class="card-text"><span style="font-weight: bolder">Department Description: </span><span th:text="${person.department.description}"></span></p>
                 </div>
+                <div class="card-footer">
+                    <p class="card-text" th:text="${person.address.street1} + ' ' + ${person.address.street2}"></p>
+                    <p class="card-text" th:text="${person.address.city} + ', ' + ${person.address.stateAbb} + ' ' + ${person.address.zip}"></p>
+                </div>
             </div>
         </div>
         <div class="col"></div>

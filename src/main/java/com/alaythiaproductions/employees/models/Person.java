@@ -25,13 +25,18 @@ public class Person {
     @JoinColumn(name = "department_id")
     private Department department;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
+    private Address address;
+
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String email) {
+    public Person(String firstName, String lastName, String email, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.address = address;
     }
 
     public int getId() {
@@ -72,5 +77,13 @@ public class Person {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }

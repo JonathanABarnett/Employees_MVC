@@ -1,8 +1,10 @@
 package com.alaythiaproductions.employees.controllers;
 
+import com.alaythiaproductions.employees.models.Address;
 import com.alaythiaproductions.employees.models.Person;
 import com.alaythiaproductions.employees.service.DepartmentService;
 import com.alaythiaproductions.employees.service.PersonService;
+import com.alaythiaproductions.employees.utility.USStates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collections;
+import java.util.List;
 
 @Controller
 public class indexController {
@@ -38,6 +42,11 @@ public class indexController {
         model.addAttribute("title", "Add Person");
         model.addAttribute(new Person());
         model.addAttribute("departments", departmentService.findAll());
+
+        List<String> stateList = USStates.listOfUSStateCode;
+        Collections.sort(stateList);
+        model.addAttribute("stateList", stateList);
+
         return "addEmployee";
     }
 
