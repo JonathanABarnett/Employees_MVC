@@ -19,6 +19,7 @@ public class detailDepartmentController {
         Department department = departmentService.findById(id);
         model.addAttribute("title", department.getName() + " Description");
         model.addAttribute("department", department);
+        model.addAttribute("personList", departmentService.findEmployees(department));
         return "detailDepartment";
     }
 }

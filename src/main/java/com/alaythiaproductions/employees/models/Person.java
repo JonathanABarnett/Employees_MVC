@@ -21,11 +21,11 @@ public class Person {
     @Size(min = 3, message = "Please enter your correct email address.")
     private String email;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 

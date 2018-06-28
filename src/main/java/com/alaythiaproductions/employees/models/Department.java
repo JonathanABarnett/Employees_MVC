@@ -1,11 +1,9 @@
 package com.alaythiaproductions.employees.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Department {
@@ -22,6 +20,8 @@ public class Department {
     @NotNull
     @Size(min = 3, message = "Please enter description of department.")
     private String description;
+    @OneToMany(mappedBy = "department")
+    private List<Person> personList;
 
     public Department() {}
 
@@ -61,5 +61,13 @@ public class Department {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
     }
 }

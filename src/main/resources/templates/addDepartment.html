@@ -13,6 +13,7 @@
         <div class="col-xs-12 col-md-6">
 
             <div class="alert alert-warning" th:if="${error}">Error!</div>
+            <div class="alert alert-warning" th:if="${noDepartments}">Please Add a Department Before Adding Employees.</div>
 
             <form th:action="@{/addDepartment}" th:object="${department}" method="post">
                 <div class="form-group">

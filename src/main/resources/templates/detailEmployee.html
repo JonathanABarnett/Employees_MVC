@@ -23,6 +23,8 @@
                     <p class="card-text" th:text="${person.address.city} + ', ' + ${person.address.stateAbb} + ' ' + ${person.address.zip}"></p>
                 </div>
             </div>
+            <br/>
+            <a th:href="@{/listEmployee}" class="btn btn-primary">Return to Emp. List</a>
         </div>
         <div class="col"></div>
     </div>

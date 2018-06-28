@@ -1,6 +1,7 @@
 package com.alaythiaproductions.employees.service;
 
 import com.alaythiaproductions.employees.models.Department;
+import com.alaythiaproductions.employees.models.Person;
 import com.alaythiaproductions.employees.repository.DepartmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public Department findById(int id) {
         return departmentRepository.findById(id);
+    }
+
+    @Override
+    public List<Person> findEmployees(Department department) {
+        return department.getPersonList();
     }
 }

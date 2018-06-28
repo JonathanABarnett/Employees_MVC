@@ -1,6 +1,7 @@
 package com.alaythiaproductions.employees.controllers;
 
 import com.alaythiaproductions.employees.models.Address;
+import com.alaythiaproductions.employees.models.Department;
 import com.alaythiaproductions.employees.models.Person;
 import com.alaythiaproductions.employees.service.DepartmentService;
 import com.alaythiaproductions.employees.service.PersonService;
@@ -33,15 +34,25 @@ public class indexController {
     @GetMapping(value = "/listEmployee")
     public String processRemoveName(Model model) {
         model.addAttribute("title", "List");
-        model.addAttribute("names", personService.findAll());
-        return "listEmployee";
+        List<Person> personList = personService.findAll();
+            model.addAttribute("names", personList);
+            return "listEmployee";
     }
 
     @GetMapping(value = "/addEmployee")
     public String displayAddName(Model model) {
         model.addAttribute("title", "Add Person");
         model.addAttribute(new Person());
-        model.addAttribute("departments", departmentService.findAll());
+        List<Department> departments = departmentService.findAll();
+
+        if (departments.isEmpty()) {
+            model.addAttribute("title", "Add Department");
+            model.addAttribute("noDepartments", true);
+            model.addAttribute(new Department());
+            return "addDepartment";
+        }
+
+        model.addAttribute("departments", departments);
 
         List<String> stateList = USStates.listOfUSStateCode;
         Collections.sort(stateList);
