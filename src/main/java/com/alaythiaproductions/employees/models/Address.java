@@ -12,7 +12,7 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int addressId;
     @NotNull
     @Size(min = 3, message = "Please enter address")
     private String street1;
@@ -37,12 +37,12 @@ public class Address {
     }
 
 
-    public int getId() {
-        return id;
+    public int getAddressId() {
+        return addressId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
     }
 
     public String getStreet1() {

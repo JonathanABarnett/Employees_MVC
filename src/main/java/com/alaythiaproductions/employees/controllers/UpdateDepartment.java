@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.List;
 
 @Controller
 public class UpdateDepartment {
@@ -25,7 +23,7 @@ public class UpdateDepartment {
     public String updateDepartment(@RequestParam("id") int id, Model model) {
         Department department = departmentService.getOne(id);
         System.out.println(department.getId() + " " + department.getName());
-        model.addAttribute("title", "Update "  + department.getName());
+        model.addAttribute("title", "Update " + department.getName());
         model.addAttribute("department", department);
         return "updateDepartment";
     }
@@ -35,7 +33,7 @@ public class UpdateDepartment {
     public String processUpdateDepartment(@Valid @ModelAttribute("department") Department department, Errors errors, Model model) {
         model.addAttribute("title", "Update " + department.getName());
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Update "  + department.getName());
+            model.addAttribute("title", "Update " + department.getName());
             model.addAttribute("error", true);
             return "updateDepartment";
         }
@@ -43,6 +41,6 @@ public class UpdateDepartment {
         System.out.println(department.getId() + " " + department.getName());
         departmentService.save(department);
         model.addAttribute("updated", true);
-        return "detailDepartment?id=" + department.getId();
+        return "detailDepartment";
     }
 }

@@ -61,6 +61,6 @@ public class UpdatePerson {
         }
         model.addAttribute("updated", true);
         personService.save(person);
-        return "detailEmployee?id=" + person.getId();
+        return "detailEmployee";
     }
 }
