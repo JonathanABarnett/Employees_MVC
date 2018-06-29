@@ -19,7 +19,6 @@
             <form th:action="@{/updateEmployee}" th:object="${person}" method="post">
 
                 <input hidden="hidden" name="id" th:value="${person.id}" />
-                <input hidden="hidden" name="addressId" th:value="${person.address.addressId}" />
 
                 <div class="form-group">
                     <!-- <label for="firstName">First Name</label> -->
