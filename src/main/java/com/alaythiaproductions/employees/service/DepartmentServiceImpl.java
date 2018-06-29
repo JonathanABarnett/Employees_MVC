@@ -24,13 +24,23 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentRepository.findAll();
     }
 
-    @Override
-    public Department findById(int id) {
-        return departmentRepository.findById(id);
-    }
+//    @Override
+//    public Department findById(int id) {
+//        return departmentRepository.findById(id);
+//    }
 
     @Override
     public List<Person> findEmployees(Department department) {
         return department.getPersonList();
+    }
+
+//    @Override
+//    public Department getOne(int id) {
+//        return departmentRepository.getOne(id);
+//    }
+
+    @Override
+    public Department getOne(int id) {
+        return departmentRepository.getOne(id);
     }
 }

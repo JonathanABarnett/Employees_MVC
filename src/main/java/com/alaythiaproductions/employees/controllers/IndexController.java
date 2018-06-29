@@ -1,6 +1,5 @@
 package com.alaythiaproductions.employees.controllers;
 
-import com.alaythiaproductions.employees.models.Address;
 import com.alaythiaproductions.employees.models.Department;
 import com.alaythiaproductions.employees.models.Person;
 import com.alaythiaproductions.employees.service.DepartmentService;
@@ -17,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 @Controller
-public class indexController {
+public class IndexController {
 
     @Autowired
     private PersonService personService;

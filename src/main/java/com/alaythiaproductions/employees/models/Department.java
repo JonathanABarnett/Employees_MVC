@@ -20,7 +20,7 @@ public class Department {
     @NotNull
     @Size(min = 3, message = "Please enter description of department.")
     private String description;
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private List<Person> personList;
 
     public Department() {}

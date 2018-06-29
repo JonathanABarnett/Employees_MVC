@@ -10,6 +10,11 @@
     <div class="row">
         <div class="col"></div>
         <div class="col-xs-12 col-md-6">
+
+            <div class="alert alert-success" th:if="${updated}">Updated Successfully!</div>
+
+            <h3 class="text-center" style="padding-bottom: 20px;">Employee Detail</h3>
+
             <div class="card">
                 <div class="card-header text-center">Employee Description</div>
                 <div class="card-body">
@@ -24,7 +29,14 @@
                 </div>
             </div>
             <br/>
+            <div class="row">
+                <div class="col-md-6">
             <a th:href="@{/listEmployee}" class="btn btn-primary">Return to Emp. List</a>
+                   </div>
+                <div class="col-md-6">
+                    <a th:href="@{/updateEmployee?id=} + ${person.id}" class="btn btn-warning">Update Employee</a>
+                </div>
+                </div>
         </div>
         <div class="col"></div>
     </div>

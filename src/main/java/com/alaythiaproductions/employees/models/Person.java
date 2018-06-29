@@ -25,7 +25,7 @@ public class Person {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 

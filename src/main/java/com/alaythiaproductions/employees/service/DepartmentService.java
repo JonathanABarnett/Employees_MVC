@@ -12,7 +12,11 @@ public interface DepartmentService {
 
     List<Department> findAll();
 
-    Department findById(int id);
+//    Department findById(int id);
 
     List<Person> findEmployees(Department department);
+
+//    Department getOne(int id);
+
+    Department getOne(int id);
 }

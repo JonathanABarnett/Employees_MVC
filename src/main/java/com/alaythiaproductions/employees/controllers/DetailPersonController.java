@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.websocket.server.PathParam;
 
 @Controller
-public class detailPersonController {
+public class DetailPersonController {
 
     @Autowired
     private PersonService personService;

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
-public class detailDepartmentController {
+public class DetailDepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
 
     @GetMapping(value = "/detailDepartment")
     public String detailDepartment(@ModelAttribute("id") int id, Model model) {
-        Department department = departmentService.findById(id);
+        Department department = departmentService.getOne(id);
         model.addAttribute("title", department.getName() + " Description");
         model.addAttribute("department", department);
         model.addAttribute("personList", departmentService.findEmployees(department));

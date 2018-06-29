@@ -16,7 +16,10 @@
 
             <div class="alert alert-warning" th:if="${error}">Error!</div>
 
-            <form th:action="@{/addEmployee}" th:object="${person}" method="post">
+            <form th:action="@{/updateEmployee}" th:object="${person}" method="post">
+
+                <input hidden="hidden" name="id" th:value="${person.id}" />
+
                 <div class="form-group">
                     <!-- <label for="firstName">First Name</label> -->
                     <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
@@ -52,12 +55,12 @@
                 <div class="form-group">
                     <div class="form-row">
                         <div class="col">
-                            <input type="text" class="form-control" id="street1" name="street1"
+                            <input type="text" class="form-control" id="street1" name="street1" th:value="${person.address.street1}"
                                    th:field="${person.address.street1}" required="required" placeholder="Address 1"/>
                             <!-- <small th:errors="*{street1}"></small> -->
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" id="street2" name="street1"
+                            <input type="text" class="form-control" id="street2" name="street1" th:value="${person.address.street1}"
                                    th:field="${person.address.street2}" placeholder="Address 2"/>
                             <!--<small th:errors="*{street2}"></small>-->
                         </div>
@@ -66,32 +69,30 @@
                 <div class="form-group">
                     <div class="form-row">
 
-                            <div class="col-md-5">
-                                <input type="text" class="form-control" id="city" name="city"
-                                       th:field="${person.address.city}" required="required" placeholder="City">
-                                <!--<small th:errors="*{city}"></small>-->
-                            </div>
-                            <div class="col-md-4">
-                                <select id="stateAbb" class="form-control"
-                                        th:name="state"
-                                        th:field="${person.address.stateAbb}"
-
-                                        required="required">
-                                    <option th:each="state : ${stateList}" th:text="${state}"
-                                            th:value="${state}"
-                                            th:selected="(${person.address.stateAbb}==${state})"></option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="zip" name="zip"
-                                       th:field="${person.address.zip}" required="required" placeholder="Zip">
-                                <!--<small th:errors="*{zip}"></small>-->
-                            </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="city" name="city" th:value="${person.address.city}"
+                                   th:field="${person.address.city}" required="required" placeholder="City">
+                            <!--<small th:errors="*{city}"></small>-->
+                        </div>
+                        <div class="col-md-4">
+                            <select id="stateAbb" class="form-control"
+                                    th:name="state"
+                                    th:field="${person.address.stateAbb}"
+                                    required="required">
+                                <option th:each="state : ${stateList}" th:text="${state}"
+                                        th:value="${state}"
+                                        th:selected="(${person.address.stateAbb}==${state})"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control" id="zip" name="zip" th:value="${person.address.zip}"
+                                   th:field="${person.address.zip}" required="required" placeholder="Zip">
+                        </div>
 
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
 
         </div>

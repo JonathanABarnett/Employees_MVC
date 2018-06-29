@@ -14,4 +14,6 @@ public interface PersonService {
 
     Person findById(int id);
 
+    Person getOne(int id);
+
 }

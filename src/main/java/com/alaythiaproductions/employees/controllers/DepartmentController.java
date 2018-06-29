@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @Controller
-public class departmentController {
+public class DepartmentController {
 
     @Autowired
     private DepartmentService departmentService;
